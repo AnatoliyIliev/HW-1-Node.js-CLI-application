@@ -1,14 +1,27 @@
 const contactsOperations = require('./db');
 // const argv = require('yargs').argv;
 
-const id = "3";
+const id = 3;
+
+const newData = {
+    name: "Boobiba Chocho",
+    email: "Boobiba.Chocho@auris.net",
+    phone: "(687) 5568-111"
+};
 
 (async() => {
     try{
         // const contacts = await contactsOperations.listContacts();
         // console.log(contacts);
         const oneContacts = await contactsOperations.getContactById(id);
-        console.log(oneContacts);
+        if(!oneContacts) {
+            throw new Error (`Товара с таким id=${id}нет`)
+        }
+        // console.log(oneContacts);
+        // const newContacts = await contactsOperations.addContact(newData.name, newData.email, newData.phone);
+        // console.log(newContacts);
+        const removeContacts = await contactsOperations.removeContact(id);
+        console.log(removeContacts);
     }
     catch(error) {
         console.log(error.message)
