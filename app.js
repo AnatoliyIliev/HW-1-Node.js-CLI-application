@@ -13,15 +13,18 @@ const newData = {
     try{
         // const contacts = await contactsOperations.listContacts();
         // console.log(contacts);
-        const oneContacts = await contactsOperations.getContactById(id);
-        if(!oneContacts) {
-            throw new Error (`Товара с таким id=${id}нет`)
-        }
+        // const oneContacts = await contactsOperations.getContactById(id);
+        // if(!oneContacts) {
+        //     throw new Error (`Товара с таким id=${id}нет`)
+        // }
         // console.log(oneContacts);
         // const newContacts = await contactsOperations.addContact(newData.name, newData.email, newData.phone);
         // console.log(newContacts);
-        const removeContacts = await contactsOperations.removeContact(id);
-        console.log(removeContacts);
+        const removeContactsById = await contactsOperations.removeContact(id);
+        if(!removeContactsById) {
+            throw new Error (`Товара с таким id=${id}нет`)
+        }
+        console.log('Удаление прошло успешно');
     }
     catch(error) {
         console.log(error.message)
