@@ -13,13 +13,16 @@ const newData = {
     try{
         // const contacts = await contactsOperations.listContacts();
         // console.log(contacts);
+
         // const oneContacts = await contactsOperations.getContactById(id);
         // if(!oneContacts) {
         //     throw new Error (`Товара с таким id=${id}нет`)
         // }
         // console.log(oneContacts);
+
         // const newContacts = await contactsOperations.addContact(newData.name, newData.email, newData.phone);
         // console.log(newContacts);
+
         const removeContactsById = await contactsOperations.removeContact(id);
         if(!removeContactsById) {
             throw new Error (`Товара с таким id=${id}нет`)
@@ -31,8 +34,6 @@ const newData = {
     }
 })();
 
-//1:22
-//2:15  yargs
 
 // async function invokeAction({ action, id, name, email, phone }) {
 //   switch (action) {
